@@ -54,16 +54,17 @@ function grabAlbums() {
 }
 
 function addAlbumListener() {
-  var target = $('#genre-sel'); // Al click su una delle options nel select
+  var target = $('#genre-sel'); // Target : menu select
 
-  target.change(function() {
-    var genreSel = $(this).val(); // Salvo il valore dell'option nel select
+  target.change(function() { // Al variare della option nel select
+    var genreSel = $(this).val(); // Salvo il valore del select
 
-    if(genreSel == 'All') { // Selezione diversa da 'Tutti i generi'
+    if(genreSel == 'All') { // Selezione 'Tutti i generi'
       $('div.cd').show(); // Mostro tutti gli album incondizionatamente
-    } else { // Se seleziono 'Tutti i generi', mostro tutti gli album
+    } else { // Altrimenti
       $('div.cd').hide();  // Nascondo tutti i div degli album
-      $('span.' + genreSel).parent('div').show(); // Mostro solo quelli che hanno classe relativa al genere
+      $('span.' + genreSel).parent('div').show(); // E mostro solo quelli che hanno classe relativa al genere
+      // Questo perché con Handlebars ho aggiunto una classe col nome del genere (vedi HTML)
     }
   });
 }
