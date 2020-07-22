@@ -59,11 +59,13 @@ function addAlbumListener() {
   target.click(function() {
     var genreSel = $(this).val(); // Salvo il valore dell'option nel select
 
-    if(genreSel!='All') { // Selezione diversa da 'Tutti i generi'
+    console.log(genreSel);
+
+    if(genreSel == 'All') { // Selezione diversa da 'Tutti i generi'
+      $('div.cd').show(); // Mostro tutti gli album incondizionatamente
+    } else { // Se seleziono 'Tutti i generi', mostro tutti gli album
       $('div.cd').hide();  // Nascondo tutti i div degli album
       $('span.' + genreSel).parent('div').show(); // Mostro solo quelli che hanno classe relativa al genere
-    } else { // Se seleziono 'Tutti i generi', mostro tutti gli album
-      $('div.cd').show(); // Mostro tutti gli album incondizionatamente
     }
   });
 }
