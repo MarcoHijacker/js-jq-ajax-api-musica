@@ -38,11 +38,11 @@ function grabAlbums() {
             });
             target.append(albumHTML); // Faccio append nel div#showcase
 
-            addAlbumListener(); // Funzione che implementa il filtro dei generi musicali
         }
       } else {
         console.log('error');
       }
+      addAlbumListener(); // Funzione che implementa il filtro dei generi musicali
 
     },
     error: function(request, state, error) {
@@ -54,12 +54,10 @@ function grabAlbums() {
 }
 
 function addAlbumListener() {
-  var target = $('#genre-sel option'); // Al click su una delle options nel select
+  var target = $('#genre-sel'); // Al click su una delle options nel select
 
-  target.click(function() {
+  target.change(function() {
     var genreSel = $(this).val(); // Salvo il valore dell'option nel select
-
-    console.log(genreSel);
 
     if(genreSel == 'All') { // Selezione diversa da 'Tutti i generi'
       $('div.cd').show(); // Mostro tutti gli album incondizionatamente
